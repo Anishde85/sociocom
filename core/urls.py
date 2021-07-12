@@ -14,6 +14,7 @@ urlpatterns = [
     path('register/',register,name='verify'),
     path('login/',login_view,name='login'),
     path('logout/',logout_view,name='logout'),
+    path('profile/', user_views.profile, name='profile'),
     path('profile/<str:username>/', user_views.profile, name='profile'),
     path('profile/update', updateprofileviews.profileupd, name='updateprofile'),
     path('room/',roomno),

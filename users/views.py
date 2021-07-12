@@ -39,8 +39,10 @@ def logout_view(request):
 
 
 def profile(request, username: str = ""):
-    if not username:
+    if not username and not request.user.is_authenticated:
         return redirect('home')
+    elif not username:
+        username = request.user.username
     try:
         user = User.objects.get(username=username)
     except User.DoesNotExist:
