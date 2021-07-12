@@ -14,6 +14,7 @@
     <div class="col-md-4">
       <div class="content-section">
           <button onclick="location.href=`{% url 'logout' %}`">Logout</button>
+          <button onclick="location.href=/profile/">View your profile</button>
           <h3>Enter room id</h3>
                 <form method="POST" action="" enctype='multipart/form-data'>
              {% csrf_token %}
