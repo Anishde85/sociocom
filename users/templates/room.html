@@ -13,7 +13,8 @@
     <div class="row">
     <div class="col-md-4">
       <div class="content-section">
-        <h3>Enter room id</h3>
+          <button onclick="location.href=`{% url 'logout' %}`">Logout</button>
+          <h3>Enter room id</h3>
                 <form method="POST" action="" enctype='multipart/form-data'>
              {% csrf_token %}
              {{form.as_table}}
