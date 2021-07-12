@@ -8,11 +8,11 @@ from django.contrib.auth.models import User
 def profileupd(request):
     inp = UpdateForm(request.POST or None)
     if request.method == 'POST' and inp.is_valid():
-        username=inp.cleaned_data['username']
-        email = inp.cleaned_data['email']
+        username=request.user.username
+        email = inp.cleaned_data['confirm_email']
         location = inp.cleaned_data['location']
         about_me = inp.cleaned_data['about_me']
-        er=Profile.objects.filter(email=email)[0]
+        er=Profile.objects.filter(email=email, user=request.user)[0]
         if location:
             er.location=location
         if about_me:
@@ -24,4 +24,5 @@ def profileupd(request):
         return redirect("profile",username=username)
         
     else:
-        return render(request, "updateprofile.html", {'form':inp})
+        return render(request, "updateprofile.html", {'form':inp,
+                                                      'username': request.user.username})
