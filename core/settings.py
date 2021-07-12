@@ -126,7 +126,10 @@ ALLOWED_HOSTS = ['*']
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # Here you tell django to look for a folder named 'assets'
+]
+STATIC_URL = '/static/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 

@@ -12,6 +12,7 @@ cryptography==3.4.7
 daphne==3.0.2
 Django==3.2.5
 django-contrib-comments==2.1.0
+django-crispy-forms==1.12.0
 django-redis==5.0.0
 hiredis==2.0.0
 hyperlink==21.0.0
@@ -31,4 +32,5 @@ six==1.16.0
 sqlparse==0.4.1
 Twisted==21.2.0
 txaio==21.2.1
+uploader==0.5.0
 zope.interface==5.4.0
