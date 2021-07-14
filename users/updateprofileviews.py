@@ -24,5 +24,4 @@ def profileupd(request):
         return redirect("profile",username=username)
         
     else:
-        return render(request, "updateprofile.html", {'form':inp,
-                                                      'username': request.user.username})
+        return render(request, "updateprofile.html", {'form':inp,'username': request.user.username})
