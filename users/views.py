@@ -4,6 +4,8 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from users.forms import UserRegisterForm
 from django.contrib.auth import authenticate,login,logout
+from recommendation import get_recommendations
+
 def register(request):
     if request.method=='POST':
         form = UserRegisterForm(request.POST)
@@ -45,9 +47,13 @@ def recommendations(request):
         user = User.objects.get(username=username)
     except User.DoesNotExist:
         return redirect('home')
+    recs = []
+    for link, image in get_recommendations(user.profile.messages):
+        recs += [{'link': link, 'image': image}]
     return render(request, 'recommendations.html',
                   {
-                      'username': user.username
+                      'username': user.username,
+                      'recs': recs
                   }
                   )
 
