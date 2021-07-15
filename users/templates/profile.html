@@ -1,9 +1,17 @@
 {% load static %}
 {% block content %}
+{% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+        {% endif %}
 <h2>{{ username }}</h2>
 <img src="{{ profile.image.url }}">
 <h4> Email: {{ profile.email }}</h4>
 <h4> Location: {{ profile.location }}</h4>
 <h5> About me: {{ profile.about_me }}</h5>
 <button onclick="location.href=`{% url 'updateprofile' %}`">Update</button>
+<button onclick="location.href=`{% url 'roomno' %}`">Chatrooms</button>
 {% endblock content %}

@@ -9,6 +9,13 @@
     <title>Hello, world!</title>
   </head>
 {% block content %}
+{% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+    {% endif %}
     <h2>You have been logged out</h2>
     <div class="border-top pt-3">
         <small class="text-muted">

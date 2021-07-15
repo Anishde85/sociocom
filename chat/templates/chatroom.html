@@ -13,6 +13,25 @@
 </head>
 
 <body>
+    {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+        {% endif %}
+    <html>
+    <input type="text" value={{room_name}} id="room_id"/>
+    <button onclick="copy()" style="font-size:24px"><i class="fa fa-copy"></i></button>
+    <script>
+        function copy() 
+        {
+            var copyText = document.getElementById('room_id')
+            copyText.select();
+            document.execCommand('copy')
+            console.log('Copied Text')
+        }
+    </script>
     <div class="container">
         <button onclick="location.href=`{% url 'logout' %}`">Logout</button>
         <button onclick="location.href=/profile/">View your profile</button>
@@ -21,7 +40,7 @@
                 <form>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1" class="h4 pt-5">Chatroom</label>
-                        <textarea class="form-control" id="chat-text" rows="10"></textarea><br>
+                        <textarea class="form-control" id="chat-text" rows="10" readonly></textarea><br>
                     </div>
                     <div class="form-group">
                         <input class="form-control" id="input" type="text"></br>

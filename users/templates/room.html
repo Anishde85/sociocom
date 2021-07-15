@@ -9,6 +9,14 @@
     <title>Hello!</title>
   </head>
 <body>
+  {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+        {% endif %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <main role="main" class="container">
     <div class="row">
     <div class="col-md-4">
@@ -16,13 +24,14 @@
           <button onclick="location.href=`{% url 'logout' %}`">Logout</button>
           <button onclick="location.href=/profile/">View your profile</button>
           <h3>Enter room id</h3>
-                <form method="POST" action="" enctype='multipart/form-data'>
+            <form method="POST" action="" enctype='multipart/form-data'>
              {% csrf_token %}
              {{form.as_table}}
             <input type="submit" value="Submit">
             </form>
-          </div>
+            <button onclick="location.href=`{% url 'createroom' %}`">Create Room</button>
         </div>
       </div>
+    </div>
     </main>
 </body>
