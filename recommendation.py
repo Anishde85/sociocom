@@ -14,11 +14,11 @@ def get_recommendations(text):
     for word, count in Counter(words).most_common():
         if word in words_to_exclude: continue
         for result in recommendation(word):
+            print(result)
             results.add(result)
         if len(results) >= 5: break
     return list(results)[:5]
     
-
 def recommendation(key):
 
     with open('amazonData.csv', newline='', encoding='utf-8') as f:
@@ -40,7 +40,8 @@ def recommendation(key):
                 ok=1
                 break
         if ok:
-            url.append((product[18],product[15]))
+            # name, categories, price, image, link
+            url.append((product[1], product[4], product[7], product[15], product[18]))
             c+=1
         if c==5:
             break

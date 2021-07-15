@@ -48,8 +48,8 @@ def recommendations(request):
     except User.DoesNotExist:
         return redirect('home')
     recs = []
-    for link, image in get_recommendations(user.profile.messages):
-        recs += [{'link': link, 'image': image}]
+    for name, categories, price, image, link in get_recommendations(user.profile.messages):
+        recs += [{'link': link, 'image': image, 'name': name, 'categories': categories, 'price': price}]
     return render(request, 'recommendations.html',
                   {
                       'username': user.username,
