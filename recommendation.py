@@ -14,10 +14,9 @@ def get_recommendations(text):
     for word, count in Counter(words).most_common():
         if word in words_to_exclude: continue
         for result in recommendation(word):
-            print(result)
             results.add(result)
-        if len(results) >= 5: break
-    return list(results)[:5]
+        if len(results) >= 10: break
+    return list(results)[:10]
     
 def recommendation(key):
 
@@ -41,10 +40,10 @@ def recommendation(key):
                 ok=1
                 break
         if ok:
-            url.append([product[18],product[15]])
+            url.append((product[1], product[4], product[7], product[15], product[18]))
             #url.append(product[1])
             c+=1
-        if c==5:
+        if c==10:
             break
         
     return url
