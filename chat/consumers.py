@@ -42,9 +42,9 @@ class ChatRoomConsumer(AsyncWebsocketConsumer):
         userobj=User.objects.filter(username=username)[0]
         st=Profile.objects.filter(user=userobj)[0]
         if len(st.messages)+len(message)>10000:
-            st.messages=st.messages[len(st.messages)+len(message)-10000:]+message
+            st.messages=st.messages[len(st.messages)+len(message)-10000:]+" "+message
         else:
-            st.messages=st.messages+message
+            st.messages=st.messages+" "+message
         st.save()
         await self.send(text_data=json.dumps({
             'message': message,
