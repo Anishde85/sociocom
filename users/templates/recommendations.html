@@ -2,4 +2,10 @@
 {% block content %}
 <h1> Recommendations for {{ username }}</h1>
 
+{% for x in recs %}
+<p><a href={{x.link}}><img src={{x.image}}></a></p>
+<h3>{{x.name}} - {{x.price}}</h3>
+<h6> Categories: {{x.categories}}</h6>
+{% endfor %}
+
 {% endblock content %}

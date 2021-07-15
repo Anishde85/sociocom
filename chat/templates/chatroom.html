@@ -37,7 +37,7 @@
         <button onclick="location.href=/profile/">View your profile</button>
         <div class="row d-flex justify-content-center">
             <div class="col-6">
-                <form>
+                <form id="myform">
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1" class="h4 pt-5">Chatroom</label>
                         <textarea class="form-control" id="chat-text" rows="10" readonly></textarea><br>
@@ -50,7 +50,13 @@
             </div>
         </div>
     </div>
-
+    <script>
+        document.getElementById('input').addEventListener('keypress', function(event) {
+            if (event.keyCode == 13) {
+                event.preventDefault();
+            }
+        });
+    </script>
     {{ request.user.username|json_script:"user_username" }}
     {{ room_name|json_script:"room-name" }}
     <script>
