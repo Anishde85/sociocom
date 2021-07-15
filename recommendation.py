@@ -16,18 +16,20 @@ def recommendation(key):
     #print("Enter keyword:")
     #key=input()
     
-    check=[1,4,10,22]
+    check=[1]
     
     url=[]
     
     for product in data[1:]:
         ok=0
         for j in check:
-            if key in product[j]:
+            word = list(product[j].lower().split(" "))
+            if key in word:
                 ok=1
                 break
         if ok:
-            url.append([product[18],product[15]])
+            #url.append([product[18],product[15]])
+            url.append(product[1])
             c+=1
         if c==5:
             break
