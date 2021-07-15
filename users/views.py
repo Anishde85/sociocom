@@ -37,6 +37,19 @@ def logout_view(request):
     messages.info(request, "Logged out successfully!")
     return redirect("login")
 
+def recommendations(request):
+    if not request.user.is_authenticated:
+        return redirect('home')
+    username = request.user.username
+    try:
+        user = User.objects.get(username=username)
+    except User.DoesNotExist:
+        return redirect('home')
+    return render(request, 'recommendations.html',
+                  {
+                      'username': user.username
+                  }
+                  )
 
 def profile(request, username: str = ""):
     if not username and not request.user.is_authenticated:

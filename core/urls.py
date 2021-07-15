@@ -16,6 +16,7 @@ urlpatterns = [
     path('logout/',logout_view,name='logout'),
     path('profile/', user_views.profile, name='profile'),
     path('profile/<str:username>/', user_views.profile, name='profile'),
+    path('recommendations/', user_views.recommendations, name='recommendations'),
     path('profile/update', updateprofileviews.profileupd, name='updateprofile'),
     path('room/',roomno,name="roomno"),
     path('room/createroom/',createroom,name='createroom'),
