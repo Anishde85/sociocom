@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from users.views import register,logout_view,login_view
-from users.roomidviews import roomno
+from users.roomidviews import roomno,createroom
 from chat import views
 from users import views as user_views,updateprofileviews
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -17,7 +17,8 @@ urlpatterns = [
     path('profile/', user_views.profile, name='profile'),
     path('profile/<str:username>/', user_views.profile, name='profile'),
     path('profile/update', updateprofileviews.profileupd, name='updateprofile'),
-    path('room/',roomno),
+    path('room/',roomno,name="roomno"),
+    path('room/createroom/',createroom,name='createroom'),
 ]
 urlpatterns += staticfiles_urlpatterns()
 if settings.DEBUG:

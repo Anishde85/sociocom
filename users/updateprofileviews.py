@@ -4,6 +4,7 @@ from users.formsprofile import UpdateForm
 from users.models import Profile
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib import messages
 @login_required
 def profileupd(request):
     inp = UpdateForm(request.POST or None)
@@ -21,6 +22,7 @@ def profileupd(request):
             image = request.FILES['image']
             er.image = image
         er.save()
+        messages.success(request, f'Profile Updated for {username}!')
         return redirect("profile",username=username)
         
     else:
