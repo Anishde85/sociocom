@@ -5,7 +5,7 @@
         
         img{
             height: auto;
-            width: auto;
+            width: 50%;
         }
         body{
             align-items: center;
@@ -36,9 +36,10 @@
 <div class="container">
 
 {% for x in recs %}
-<p><a href={{x.link}}><img src={{x.image}}></a></p>
-<h3>{{x.name}} - {{x.price}}</h3>
-<h6> Categories: {{x.categories}}</h6>
+<p><a href={{x.link}}><img src={{x.image}} onerror="this.src='/media/error.png';" /></a></p>
+<p><a href={{x.link}}><h3>{{x.name}}</h3></a></p>
+<h5>(Categories: {{x.categories}})</h5>
+<h3 style="color: #FF7600;">₹{{x.price}}</h3>
 {% endfor %}
 
 {% endblock content %}
