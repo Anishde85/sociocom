@@ -49,6 +49,8 @@ def recommendations(request):
         return redirect('home')
     recs = []
     for name, categories, price, image, link in get_recommendations(user.profile.messages):
+        if len(price)==0:
+            price="NA"
         recs += [{'link': link, 'image': image, 'name': name, 'categories': categories, 'price': price}]
     return render(request, 'recommendations.html',
                   {
