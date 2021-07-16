@@ -6,6 +6,7 @@ Created on Wed Jul 14 02:00:00 2021
 """
 import csv
 from collections import Counter
+import Levenshtein
 
 def get_recommendations(text):
     words = ["".join(k for k in word if k.isalpha() or k.isdigit()) for word in text.split()]
@@ -33,8 +34,14 @@ def recommendation(key):
     for product in data[1:]:
         ok=0
         for j in check:
+            f=0
             word = list(product[j].lower().split(" "))
-            if key in word:
+            for k in word:
+                dist=Levenshtein.distance(key,k)
+                if dist<=2:
+                    f=1
+                    break
+            if f==1:
                 ok=1
                 break
         if ok:
