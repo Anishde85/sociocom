@@ -20,7 +20,7 @@ def get_recommendations(text):
     
 def recommendation(key):
 
-    with open('amazonData.csv', newline='', encoding='utf-8') as f:
+    with open('flipkart.csv', newline='', encoding='utf-8') as f:
         reader = csv.reader(f)
         data = list(reader)
         
@@ -28,10 +28,8 @@ def recommendation(key):
     #print("Enter keyword:")
     #key=input()
     
-    check=[1]
-    
+    check=[3]
     url=[]
-    
     for product in data[1:]:
         ok=0
         for j in check:
@@ -40,7 +38,10 @@ def recommendation(key):
                 ok=1
                 break
         if ok:
-            url.append((product[1], product[4], product[7], product[15], product[18]))
+            category=list(map(str,product[4].split(">>")))[-1][1:-2]
+            images=list(map(str,product[8].split(",")))[0][2:-1]
+            print(images)
+            url.append((product[3], category, product[7], images, product[2]))
             #url.append(product[1])
             c+=1
         if c==10:
