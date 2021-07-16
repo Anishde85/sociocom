@@ -1,11 +1,46 @@
 {% load static %}
 {% block content %}
+<head>
+    <style>
+        
+        img{
+            height: auto;
+            width: auto;
+        }
+        body{
+            align-items: center;
+            text-align: center;
+        }
+        h1{
+            width: 70%;
+            align-self: center;
+            margin: auto;
+            margin-top: 20px;
+            padding: 10px;
+            background-image: linear-gradient(to top, #00d9ff, #4502ff);
+            color: white;
+        }
+        .container{
+            width: 70%;
+            margin: auto;
+            margin-top: 30px;
+            background-color: aquamarine;
+            border: 3px solid greenyellow;
+            border-radius: 50 px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
 <h1> Recommendations for {{ username }}</h1>
+<div class="container">
 
 {% for x in recs %}
 <p><a href={{x.link}}><img src={{x.image}}></a></p>
-<h3>{{x.name}} - ₹{{x.price}}</h3>
+<h3>{{x.name}} - {{x.price}}</h3>
 <h6> Categories: {{x.categories}}</h6>
 {% endfor %}
 
 {% endblock content %}
+</div>
+</body>
