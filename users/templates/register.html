@@ -85,7 +85,7 @@ input{
       <div class="content-section">
         {% if messages %}
             {% for message in messages %}
-              <div class="alert alert-{{ message.tags }}">
+              <div class="alert alert-{{ message.tags }}" style="color:#00f77c ;text-align: center; height: 30px; background-color: #141E61; padding-top:10px">
                 {{ message }}
               </div>
             {% endfor %}

@@ -29,7 +29,7 @@ def login_view(request):
                 messages.info(request, f"You are now logged in as {username}")
                 return redirect("/room")
             else:
-                messages.error(request, "Invalid username or password.")
+                messages.info(request, "Invalid username or password.")
         else:
             messages.error(request, "Invalid username or password.")
     form = AuthenticationForm()

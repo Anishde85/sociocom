@@ -55,7 +55,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'core.urls'
-DEBUG = False
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -121,13 +120,13 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-ALLOWED_HOSTS = ['https://talkandbuy.herokuapp.com/','http://127.0.0.1:8000/','localhost']
+ALLOWED_HOSTS = ['*']
 
 # Import local_settings.py
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
-
+STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 # Path where media is stored
