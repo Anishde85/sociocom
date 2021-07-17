@@ -10,9 +10,11 @@ channels-redis==3.3.0
 constantly==15.1.0
 cryptography==3.4.7
 daphne==3.0.2
+dj-database-url==0.5.0
 Django==3.2.5
 django-contrib-comments==2.1.0
 django-crispy-forms==1.12.0
+django-heroku==0.3.1
 django-redis==5.0.0
 gunicorn==20.1.0
 hiredis==2.0.0
@@ -21,6 +23,7 @@ idna==3.2
 incremental==21.3.0
 msgpack==1.0.2
 Pillow==8.3.1
+psycopg2==2.9.1
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycparser==2.20
@@ -36,4 +39,5 @@ Twisted==21.2.0
 txaio==21.2.1
 uploader==0.5.0
 urllib3==1.26.6
+whitenoise==5.3.0
 zope.interface==5.4.0
