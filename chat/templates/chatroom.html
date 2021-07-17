@@ -9,57 +9,100 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-    <title>Chatroom!</title>
+    <title>Hello, world!</title>
+    <style>
+          .chat {
+            width: 550px;
+            height: 400px;
+            float:left;
+            background: #F2F5F8;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            color: #434651;
+            overflow-y:auto;
+          }
+        
+          .message {      
+            color: white;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            border-radius: 50px;
+            border-top-left-radius: 0px;
+            display: inline-block;
+            padding: 10px 20px;
+            position: relative;
+            background:#8c77e3;
+            margin-left: 5px;
+            margin-bottom: 7px;
+       }
+       
+     
+     
+            .msg-img {
+            margin-right: 10px;
+            margin-bottom: 5px;
+            background: #ddd;
+            border-radius: 50%;
+            }
+
+    </style>
+
 </head>
 
 <body>
-    {% if messages %}
-            {% for message in messages %}
-              <div class="alert alert-{{ message.tags }}" style="color:#00f77c ;text-align: center; height: 30px; background-color: #141E61; padding-top:10px">
-                {{ message }}
-              </div>
-            {% endfor %}
-        {% endif %}
-    <html>
-    <input type="text" value={{room_name}} id="room_id"/>
-    <button onclick="copy()" style="font-size:24px"><i class="fa fa-copy"></i></button>
-    <script>
-        function copy() 
-        {
-            var copyText = document.getElementById('room_id')
-            copyText.select();
-            document.execCommand('copy')
-            console.log('Copied Text')
-        }
-    </script>
     <div class="container">
-        <button onclick="location.href=`{% url 'logout' %}`">Logout</button>
-        <button onclick="location.href=/profile/">View your profile</button>
-        <div class="row d-flex justify-content-center">
-            <div class="col-6">
-                <form id="myform">
+        
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"><i>LOGO</i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <diV class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="/logout/"><h5>Logout</h5></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/profile/"><h5>ViewProfile</h5></a>
+                  </li>
+
+                </diV>
+
+            </div>
+
+        </nav>    
+
+
+        <div class="row justify-content-center">
+            <div class="chat-body" id="chat-body">
+                <form>
                     <div class="form-group">
-                        <label for="exampleFormControlTextarea1" class="h4 pt-5">Chatroom</label>
-                        <textarea class="form-control" id="chat-text" rows="10" readonly></textarea><br>
+                        <h3 for="" class="h4 pt-5">Chatroom</h3>
+                        <div class="chat" id="msg">
+                            
+                        </div>
+                        
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="input" type="text"></br>
+                        <input class="form-control col-12" placeholder="Type message..." id="input" type="text">
+                        
+                        <input class="btn btn-secondary  btn-block" id="submit" type="button" value="Send" >
                     </div>
-                    <input class="btn btn-secondary btn-lg btn-block" id="submit" type="button" value="Send">
+                    
                 </form>
             </div>
         </div>
     </div>
-    <script>
-        document.getElementById('input').addEventListener('keypress', function(event) {
-            if (event.keyCode == 13) {
-                event.preventDefault();
-            }
-        });
-    </script>
+
     {{ request.user.username|json_script:"user_username" }}
     {{ room_name|json_script:"room-name" }}
     <script>
+
+        
+
         const user_username = JSON.parse(document.getElementById('user_username').textContent);
         document.querySelector('#submit').onclick = function (e) {
             const messageInputDom = document.querySelector('#input');
@@ -74,18 +117,27 @@
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
 
         const chatSocket = new WebSocket(
-            'wss://' +
+            'ws://' +
             window.location.host +
             '/ws/chat/' +
             roomName +
             '/'
         );
+        var ui='';
 
         chatSocket.onmessage = function (e) {
             const data = JSON.parse(e.data);
             console.log(data)
-            document.querySelector('#chat-text').value += (data.username + ': ' + data.message + '\n')
+             ui=ui+'<b class="msg-img">'+data.username+'</b>'+ "<br>"+'<div class="message">'+data.message+'</div>'+"<br>";
+            document.getElementById('msg').innerHTML=ui;
+           
+            let chatWindow = document.getElementById('msg'); 
+        
+            chatWindow.scrollTop=chatWindow.scrollHeight;
+          //  document.querySelector('#chat-text').value += (data.username + ': ' + data.message + '\n')
         }
+        
+        
     </script>
 
     <!-- Optional JavaScript -->
