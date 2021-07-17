@@ -11,7 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('chat/', views.index, name='index'),
     path('chat/<str:room_name>/', views.room, name='room'),
-    path('register/',register,name='verify'),
+    path('',register,name='verify'),
     path('login/',login_view,name='login'),
     path('logout/',logout_view,name='logout'),
     path('profile/', user_views.profile, name='profile'),
