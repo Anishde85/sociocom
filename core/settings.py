@@ -121,7 +121,7 @@ STATICFILES_DIRS = [
 ]
 
 ALLOWED_HOSTS = ['*']
-
+DEBUG = False
 # Import local_settings.py
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
