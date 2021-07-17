@@ -36,9 +36,16 @@
             border-radius: 50 px;
             padding: 10px;
         }
+        .btn
+        {
+            position:absolute;
+            top:0;
+            right:0;
+        }
     </style>
 </head>
 <body>
+<a onclick="location.href=`{% url 'profile' %}`" href="#" class="btn btn-info">Back to Profile</a> 
 <h1> Products you might be interested in </h1>
 <div class="container">
 
