@@ -14,6 +14,7 @@ Django==3.2.5
 django-contrib-comments==2.1.0
 django-crispy-forms==1.12.0
 django-redis==5.0.0
+gunicorn==20.1.0
 hiredis==2.0.0
 hyperlink==21.0.0
 idna==3.2
@@ -34,4 +35,5 @@ sqlparse==0.4.1
 Twisted==21.2.0
 txaio==21.2.1
 uploader==0.5.0
+urllib3==1.26.6
 zope.interface==5.4.0
