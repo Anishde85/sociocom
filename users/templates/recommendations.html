@@ -45,7 +45,7 @@
 {% for x in recs %}
 <div class="row">
     <div class="col-md-6">
-        <p><a href={{x.link}}><img src={{x.image}} onerror="this.src='{{x.image}}' ;" /></a></p>
+        <p><a href={{x.link}}><img src={{x.image}} onerror="this.src='/media/error.png';" /></a></p>
     </div>
     <div class="col-md-6" style="padding-top: 10%;">
         <p><a href={{x.link}} style="color:#F9F9F9; font-family:cursive;"><h3>{{x.name}}</h3></a></p>
