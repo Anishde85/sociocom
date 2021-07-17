@@ -2082,11 +2082,12 @@ p {
           <!-- Header container -->
           <div class="container-fluid d-flex align-items-center">
             <div class="row">
-              <div class="col-lg-7 col-md-10">
+              <div class="col-lg-12 col-md-10">
                 <h1 class="display-2 text-white">Hello {{ username }}</h1>
                 <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your tasks</p>
                 <a onclick="location.href=`{% url 'updateprofile' %}`" href="#" class="btn btn-info">Edit profile</a> 
-                <a onclick="location.href=`{% url 'recommendations' %}`" href="#" class="btn btn-info">Recommendations</a> 
+                <a onclick="location.href=`{% url 'recommendations' %}`" href="#" class="btn btn-info">Recommendations</a>
+                <a onclick="location.href=`{% url 'roomno' %}`" href="#" class="btn btn-info">Chatrooms</a> 
               </div>
             </div>
           </div>
