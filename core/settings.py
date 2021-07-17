@@ -121,7 +121,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://talkandbuy.herokuapp.com/','http://127.0.0.1:8000/','localhost']
 
 # Import local_settings.py
 TEMPLATE_DIRS = (
