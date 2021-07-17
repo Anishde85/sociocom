@@ -11,6 +11,9 @@
 
     <title>Hello, world!</title>
     <style>
+        body{
+            background-image: linear-gradient(87deg, rgb(23, 43, 77) 0px, rgb(26, 23, 77) 100%) !important;
+        }
           .chat {
             width: 550px;
             height: 400px;
@@ -20,6 +23,15 @@
             border-bottom-right-radius: 5px;
             color: #434651;
             overflow-y:auto;
+          }
+          .btn1{
+              margin-top: 1%;
+              width:50%;
+              margin-left: 25%;
+          }
+          h6{
+              text-align: center;
+              color:#F2F5F8;
           }
         
           .message {      
@@ -35,8 +47,9 @@
             margin-left: 5px;
             margin-bottom: 7px;
        }
-       
-     
+       .header{
+        background-color: #78DEC7 !important;
+       }
      
             .msg-img {
             margin-right: 10px;
@@ -44,7 +57,7 @@
             background: #ddd;
             border-radius: 50%;
             }
-
+            
     </style>
 
 </head>
@@ -53,9 +66,7 @@
     <div class="container">
         
 
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><i>LOGO</i></a>
+        <nav class="header navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -74,13 +85,22 @@
             </div>
 
         </nav>    
-
-
+        <input onclick="copy()" type="text" class="btn btn1 btn-info" value={{room_name}} id="room_id"/>
+        <h6>Meeting code</h6>
+        <script>
+        function copy() 
+        {
+            var copyText = document.getElementById('room_id')
+            copyText.select();
+            document.execCommand('copy')
+            console.log('Copied Text')
+        }
+        </script>
         <div class="row justify-content-center">
             <div class="chat-body" id="chat-body">
                 <form>
                     <div class="form-group">
-                        <h3 for="" class="h4 pt-5">Chatroom</h3>
+                        <h3 for="" class="h4 pt-5" style="color: azure; font-family: cursive; text-align: center;">Chatroom</h3>
                         <div class="chat" id="msg">
                             
                         </div>
@@ -89,7 +109,7 @@
                     <div class="form-group">
                         <input class="form-control col-12" placeholder="Type message..." id="input" type="text">
                         
-                        <input class="btn btn-secondary  btn-block" id="submit" type="button" value="Send" >
+                        <input class="btn btn-info" style="width:100%" id="submit" type="button" value="Send" >
                     </div>
                     
                 </form>
@@ -99,6 +119,13 @@
 
     {{ request.user.username|json_script:"user_username" }}
     {{ room_name|json_script:"room-name" }}
+    <script>
+        document.getElementById('input').addEventListener('keypress', function(event) {
+            if (event.keyCode == 13) {
+                event.preventDefault();
+            }
+        });
+    </script>
     <script>
 
         
