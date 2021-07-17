@@ -36,6 +36,7 @@
 <div class="container">
 
 {% for x in recs %}
+<meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
 <p><a href={{x.link}}><img src={{x.image}} onerror="this.src='/media/error.png';" /></a></p>
 <p><a href={{x.link}}><h3>{{x.name}}</h3></a></p>
 <h5>(Categories: {{x.categories}})</h5>
