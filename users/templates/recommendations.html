@@ -1,46 +1,58 @@
 {% load static %}
 {% block content %}
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         
         img{
             height: auto;
-            width: 50%;
+            width: 100%;
+            border-radius: 5%;
         }
         body{
+            background-image: linear-gradient(87deg, rgb(23, 43, 77) 0px, rgb(26, 23, 77) 100%) !important;
             align-items: center;
             text-align: center;
         }
         h1{
-            width: 70%;
+            color: #fff;
+            border-color: #11cdef;
+            background-color: #11cdef;
+            box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
+            width: 40%;
             align-self: center;
             margin: auto;
             margin-top: 20px;
             padding: 10px;
-            background-image: linear-gradient(to top, #00d9ff, #4502ff);
-            color: white;
+            font-size: 20px;
+            font-family: Open Sans, sans-serif;
         }
         .container{
             width: 70%;
             margin: auto;
             margin-top: 30px;
-            background-color: aquamarine;
-            border: 3px solid greenyellow;
+            background-color: grey;
+            border: 1px solid greenyellow;
             border-radius: 50 px;
             padding: 10px;
         }
     </style>
 </head>
 <body>
-<h1> Recommendations for {{ username }}</h1>
+<h1> Products you might be interested in </h1>
 <div class="container">
 
 {% for x in recs %}
-<meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />
-<p><a href={{x.link}}><img src={{x.image}} onerror="this.src='/media/error.png';" /></a></p>
-<p><a href={{x.link}}><h3>{{x.name}}</h3></a></p>
-<h5>(Categories: {{x.categories}})</h5>
-<h3 style="color: #FF7600;">₹{{x.price}}</h3>
+<div class="row">
+    <div class="col-md-6">
+        <p><a href={{x.link}}><img src={{x.image}} onerror="this.src='/media/error.png';" /></a></p>
+    </div>
+    <div class="col-md-6" style="padding-top: 15%;">
+        <p><a href={{x.link}} style="color:#F9F9F9; font-family:cursive;"><h3>{{x.name}}</h3></a></p>
+        <h5>(Categories: {{x.categories}})</h5>
+        <h3 style="color: #FF7600;">₹{{x.price}}</h3>
+    </div>
+</div>
 {% endfor %}
 
 {% endblock content %}
