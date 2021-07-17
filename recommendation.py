@@ -15,7 +15,7 @@ def get_recommendations(text):
     
 def recommendation(key):
 
-    with open('flipkart.csv', newline='', encoding='utf-8') as f:
+    with open('flipkart_com.csv', newline='', encoding='utf-8') as f:
         reader = csv.reader(f)
         data = list(reader)
         
