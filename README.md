@@ -3,7 +3,7 @@
 This repository contains all the code for the *Sociocom* project prepared as an official hackathon entry for *Hackrx by Bajaj Finserv*.
 
 ### Link to the live website 👉
-##### [Sociocom](https://talkandbuy.herokuapp.com "Sociocom")
+#### [Sociocom](https://talkandbuy.herokuapp.com "Sociocom")
 
 
 ### Features 👉
@@ -14,17 +14,17 @@ This repository contains all the code for the *Sociocom* project prepared as an 
 ### How we built it 👉
 We used the following technologies in the
 
-##### Frontend:
+#### Frontend:
 1. HTML
 2. CSS
 
-##### Backend:
+#### Backend:
 1. Django
 
-##### Database:
+#### Database:
 1. PosgreSQL
 
-##### Recommendation algorithm:
+#### Recommendation algorithm:
 1. Levenshtein Distance
 
 ### Accomplishments that we're proud of 👉
