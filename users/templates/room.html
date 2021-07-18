@@ -7,31 +7,108 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <title>Room</title>
+
+    <style>
+      body{
+      
+      justify-content: center;
+       align-items: center;
+       background-image: linear-gradient(87deg, rgb(23, 43, 77) 0px, rgb(26, 23, 77) 100%) !important;
+       background-size: cover;
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       
+    }
+    .header{
+      background-color: #78DEC7 !important;
+    }
+    .content-section{
+            background: #e0e7f7;
+            width: 300px;
+            justify-content: center;
+            padding-left: 20px;
+            padding-top: 10px;
+            padding-bottom: 20px;
+            font-family: fantasy;
+            border-radius: 5%;
+            margin-top: 20px;
+            background-color: #548CA8 !important;
+            align-items: center;
+            margin-left: 37%;
+            
+        }
+      .btn1{
+        margin-left: 45% !important;
+      }
+      .btn-info{
+        margin-left: 30%;
+      }
+
+        input{
+        background-color: aliceblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    </style>
   </head>
 <body>
   {% if messages %}
             {% for message in messages %}
-              <div class="alert alert-{{ message.tags }}" style="color:#00f77c ;text-align: center; height: 30px; background-color: #141E61; padding-top:10px">
-                {{ message }}
+            <div class="alert alert-{{ message.tags }}" style="color:#00f77c ;text-align: center; height: 50px; background-color: #a3a5ad; padding-top:10px; padding-bottom:10px">
+              {{ message }}
               </div>
             {% endfor %}
         {% endif %}
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <main role="main" class="container">
+
+      <nav class="header navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <diV class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/logout/"><h5>Logout</h5></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/profile/"><h5>ViewProfile</h5></a>
+              </li>
+
+            </diV>
+
+        </div>
+
+      </nav> 
     <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
+      <button class="btn btn-info btn1" onclick="location.href=`{% url 'createroom' %}`" style="margin-top: 50px;">Create Room</button>
+      <hr style="height:2px; width:100%; border-width:0; color:white; background-color:white">
       <div class="content-section">
-          <button onclick="location.href=`{% url 'logout' %}`">Logout</button>
-          <button onclick="location.href=/profile/">View your profile</button>
-          <h3>Enter room id</h3>
+          
+            <h3>Enter room id</h3>
             <form method="POST" action="" enctype='multipart/form-data'>
              {% csrf_token %}
              {{form.as_table}}
-            <input type="submit" value="Submit">
+            <input class="btn btn-info " type="submit" value="Join Room">
             </form>
-            <button onclick="location.href=`{% url 'createroom' %}`">Create Room</button>
         </div>
-      </div>
+        </div>
     </div>
     </main>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
 </body>

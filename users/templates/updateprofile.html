@@ -9,25 +9,70 @@
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <title>Profile Update</title>
   </head>
+  <style>
+    body{
+      
+      justify-content: center;
+       align-items: center;
+       padding-top: 20px;
+       background-image: linear-gradient(87deg, rgb(23, 43, 77) 0px, rgb(26, 23, 77) 100%) !important;
+       background-size: cover;
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       
+    }
+    nav{
+        border-radius: 10%;
+        background-color: #e7f3ff;
+    }
+    .row{
+      justify-content: center;
+      
+    }
+    .content-section{
+        background-color: #548CA8 !important;
+        width: 400px;
+        justify-content: center;
+        padding-left: 20px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        font-family: fantasy;
+        border-radius: 7%;
+        
+    }
+    input{
+        background-color: aliceblue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .btn
+        {
+            position:absolute;
+            top:0;
+            right:0;
+        }
+  </style>
 <body>
   {% if messages %}
   {% for message in messages %}
-    <div class="alert alert-{{ message.tags }}" style="color:#00f77c ;text-align: center; height: 30px; background-color: #141E61; padding-top:10px">
-      {{ message }}
+  <div class="alert alert-{{ message.tags }}" style="color:#00f77c ;text-align: center; height: 50px; background-color: #a3a5ad; padding-top:10px">
+    {{ message }}
     </div>
   {% endfor %}
 {% endif %}
     <main role="main" class="container">
+      <a onclick="location.href=`{% url 'profile' %}`" href="#" class="btn btn-info">Back to Profile</a>
     <div class="row">
-    <div class="col-md-4">
+    <div class="">
       <div class="content-section">
         <h3>Update your Profile</h3>
                 <h5> Username: {{ username }}</h5>
                 <form method="POST" action="" enctype='multipart/form-data'>
-             {% csrf_token %}
-             {{form|crispy}}
-            <input type="submit" value="Submit">
-            </form>
+                  <fieldset class="form-group">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                  </fieldset>  
+                <input type="submit" value="Submit">
+                </form>
           </div>
         </div>
       </div>
