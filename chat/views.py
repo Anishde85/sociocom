@@ -8,3 +8,6 @@ def index(request):
 @login_required
 def room(request, room_name):
     return render(request, 'chatroom.html', {'room_name': room_name})
+ 
+def landing(request):
+    return render(request, 'landing.html', {})

@@ -7,11 +7,12 @@ from users import views as user_views,updateprofileviews
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.conf.urls.static import static
-urlpatterns = [
+urlpatterns = [ 
     path('admin/', admin.site.urls),
     path('chat/', views.index, name='index'),
     path('chat/<str:room_name>/', views.room, name='room'),
-    path('',register,name='verify'),
+    path('register/',register,name='verify'),
+    path('', views.landing, name='landing'),
     path('login/',login_view,name='login'),
     path('logout/',logout_view,name='logout'),
     path('profile/', user_views.profile, name='profile'),
