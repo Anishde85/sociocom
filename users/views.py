@@ -37,7 +37,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     messages.info(request, "Logged out successfully!")
-    return redirect("login")
+    return redirect("landing")
 
 def recommendations(request):
     if not request.user.is_authenticated:
@@ -46,7 +46,7 @@ def recommendations(request):
     try:
         user = User.objects.get(username=username)
     except User.DoesNotExist:
-        return redirect('home')
+        return redirect('landing')
     recs = []
     for name, categories, price, image, link in get_recommendations(user.profile.messages):
         if len(price)==0:
@@ -61,13 +61,13 @@ def recommendations(request):
 
 def profile(request, username: str = ""):
     if not username and not request.user.is_authenticated:
-        return redirect('home')
+        return redirect('login')
     elif not username:
         username = request.user.username
     try:
         user = User.objects.get(username=username)
     except User.DoesNotExist:
-        return redirect('home')
+        return redirect('login')
     return render(request, 'profile.html',
                   {
                     'profile':user.profile,
