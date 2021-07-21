@@ -6,10 +6,96 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Sociocom</title>
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
         <style>
+            body {
+                background-image: linear-gradient(to bottom right, black, black, rgb(12, 5, 66), blue);
+                font-family: Roboto;
+                color: white;
+                line-height: 1.5;
+                width: 100%;
+
+            }
+
+            .header {
+                overflow: hidden;
+                background: transparent;
+                padding: 20px 10px;
+            }
+
+            .header a {
+                float: left;
+                color: white;
+                text-align: center;
+                padding: 12px;
+                text-decoration: none;
+                font-size: 18px;
+                line-height: 25px;
+                border-radius: 4px;
+                padding-right: 40px;
+            }
+
+            .header a.logo {
+                font-size: 35px;
+
+                letter-spacing: 2px;
+            }
+
+            .header .active {
+                text-decoration: line-through;
+            }
+
+            .header-right {
+                float: right;
+            }
+
+            @media screen and (max-width: 500px) {
+                .header a {
+                    float: none;
+                    display: block;
+                    text-align: left;
+                }
+
+                .header-right {
+                    float: none;
+                }
+            }
+
+            #content {
+                padding-left: 50px;
+            }
+
+            #content a {
+                text-decoration: underline;
+                text-underline-position: under;
+                font-size: 18px;
+                color: dodgerblue;
+            }
         </style>
     </head>
+
     <body>
-        <h1>Hi</h1>
+        <div class="header">
+            <a href="/">HOME</a>
+            <a href="/register/">REGISTER</a>
+            <a href="/login/">LOGIN</a>
+            <a href="/room/">ROOM</a>
+            <a href="/profile/">PROFILE</a>
+        </div><br><br><br>
+
+        <div id="content" width="25%">
+            <p style="font-size: 72px; letter-spacing: 5px; margin-top: 0;"><b>Sociocom</b></p>
+            <p style="font-size: 30px;">LOREM IPSUM</p><br>
+            <p width="50%">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dapibus neque convallis tellus pharetra
+                pharetra.<br>Fusce a orci quis ante posuere porta mollis a orci. Proin sed arcu in ante ornare interdum.
+                Vestibulum eget laoreet nulla.<br> Etiam dictum, nisl non maximus rutrum, ante enim cursus mauris, ac laoreet
+                turpis neque et mi.<br><br>Ut finibus sem turpis, at blandit ex tempor in.Ut nulla nibh, sodales et leo id,
+                viverra porttitor nisi.<br>Nunc tellus turpis, finibus eu ligula sed, ornare finibus leo. Suspendisse
+                consectetur feugiat consectetur.<br>Phasellus vel finibus dolor.
+            </p>
+        </div><br><br>
+
     </body>
+
 </html>
