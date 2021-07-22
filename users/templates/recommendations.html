@@ -1,33 +1,38 @@
 {% load static %}
 {% block content %}
+
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
-        
-        img{
+        img {
             height: auto;
             width: 100%;
             border-radius: 5%;
         }
-        body{
-            background-image: linear-gradient(87deg, rgb(23, 43, 77) 0px, rgb(26, 23, 77) 100%) !important;
+
+        body {
+            background-image: linear-gradient(to bottom right, black, black, rgb(12, 5, 66), blue);
             align-items: center;
             text-align: center;
         }
-        h1{
+
+        h1 {
             color: #fff;
             border-color: #11cdef;
-            background-color: #11cdef;
+            background-image: linear-gradient(to top, #00d9ff, #4502ff);
             box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
             width: 40%;
             align-self: center;
             margin: auto;
             margin-top: 20px;
+            margin-bottom: 20px;
             padding: 10px;
             font-size: 20px;
             font-family: Open Sans, sans-serif;
         }
-        .container{
+
+        .container {
             width: 70%;
             margin: auto;
             margin-top: 30px;
@@ -36,41 +41,51 @@
             border-radius: 50 px;
             padding: 10px;
         }
-        .btn
-        {
-            position:absolute;
-            top:0;
-            right:0;
+
+        .btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: white;
+            background-color: #4502ff ;
+            
+        }
+
+        .btn:hover {
+            background-color: white;
+            /* Green */
+            color: #014df0;
         }
     </style>
     <title>Products</title>
 </head>
+
 <body>
-<a onclick="location.href=`{% url 'profile' %}`" href="#" class="btn btn-info">Back to Profile</a> 
-<h1> Products you might be interested in </h1>
-<div class="container">
+    <a onclick="location.href=`{% url 'profile' %}`" href="#" class="btn btn-info">Back to Profile</a>
+    <h1> Products you might be interested in </h1>
+    <div class="container">
 
-{% if not recs %}
-    <div class="row">
-        <div>
+        {% if not recs %}
+        <h1>
             No recommendations
-        </div>
-    </div>
-{% else %}
-    
-    <div class="row">
-        {% for x in recs %}
-        <div class="col-md-4">
-            <p><a href={{x.link}}><img src={{x.image}} onerror="this.src='/media/error.png';" /></a></p>
-            <p><a href={{x.link}} style="color:#F9F9F9; font-family:cursive;"><h3>{{x.name}}</h3></a></p>
-            <h5>(Categories: {{x.categories}})</h5>
-            <h3 style="color: #FF7600;">₹{{x.price}}</h3>
-        </div>
-        {% endfor %}
-    </div>
-    
-{% endif %}
+        </h1>
+        {% else %}
 
-{% endblock content %}
-</div>
+        <div class="row">
+            {% for x in recs %}
+            <div class="col-md-4">
+                <p><a href={{x.link}}><img src={{x.image}} onerror="this.src='/media/error.png';" /></a></p>
+                <p><a href={{x.link}} style="color:#F9F9F9; font-family:cursive;">
+                        <h3>{{x.name}}</h3>
+                    </a></p>
+                <h5>(Categories: {{x.categories}})</h5>
+                <h3 style="color: #FF7600;">₹{{x.price}}</h3>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% endif %}
+
+        {% endblock content %}
+    </div>
 </body>

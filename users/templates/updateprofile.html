@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <title>Profile Update</title>
   </head>
   <style>
@@ -15,7 +16,7 @@
       justify-content: center;
        align-items: center;
        padding-top: 20px;
-       background-image: linear-gradient(87deg, rgb(23, 43, 77) 0px, rgb(26, 23, 77) 100%) !important;
+       background-image: linear-gradient(to bottom right, black, black, rgb(12, 5, 66), blue);
        background-size: cover;
        background-repeat: no-repeat;
        background-attachment: fixed;
@@ -30,25 +31,36 @@
       
     }
     .content-section{
-        background-color: #548CA8 !important;
+        background-color: #7ecbf8;
         width: 400px;
         justify-content: center;
+        text-align: center;
         padding-left: 20px;
         padding-top: 10px;
         padding-bottom: 20px;
-        font-family: fantasy;
+        font-family: Roboto;
         border-radius: 7%;
         
     }
     input{
         background-color: aliceblue;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        box-shadow: white;
+        font-family: Roboto;
+        border-radius: 10px;
     }
-    .btn
-        {
-            position:absolute;
-            top:0;
-            right:0;
+    .btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: white;
+            background-color: #4502ff ;
+            
+        }
+
+        .btn:hover {
+            background-color: white;
+            /* Green */
+            color: #014df0;
         }
   </style>
 <body>

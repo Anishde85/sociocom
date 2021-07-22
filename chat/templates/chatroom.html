@@ -8,33 +8,43 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
 
     <title>Chat</title>
     <style>
-        body{
-            background-image: linear-gradient(87deg, rgb(23, 43, 77) 0px, rgb(26, 23, 77) 100%) !important;
+        body {
+            background-image: linear-gradient(to bottom right, black, black, rgb(12, 5, 66), blue);
         }
-          .chat {
+
+        .chat {
             width: 550px;
             height: 400px;
-            float:left;
+            float: left;
             background: #F2F5F8;
             border-top-right-radius: 5px;
             border-bottom-right-radius: 5px;
             color: #434651;
-            overflow-y:auto;
-          }
-          .btn1{
-              margin-top: 1%;
-              width:50%;
-              margin-left: 25%;
-          }
-          h6{
-              text-align: center;
-              color:#F2F5F8;
-          }
-        
-          .message {      
+            overflow-y: auto;
+        }
+
+        .btn1 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: white;
+            background-color: #4502ff ;
+            width: 50%;
+            margin-left: 25%;
+        }
+        .btn{
+            background-color: #4502ff ;
+        }
+
+        h6 {
+            text-align: center;
+            color: #F2F5F8;
+        }
+
+        .message {
             color: white;
             -webkit-border-radius: 50px;
             -moz-border-radius: 50px;
@@ -43,75 +53,91 @@
             display: inline-block;
             padding: 10px 20px;
             position: relative;
-            background:#8c77e3;
+            background: #8c77e3;
             margin-left: 5px;
             margin-bottom: 7px;
-       }
-       .header{
-        background-color: #78DEC7 !important;
-       }
-     
-            .msg-img {
+        }
+
+        .header {
+            margin-top: 15px;
+            background-image: linear-gradient(to top, #00d9ff, #4502ff);
+            color: white;
+            font-size: 27 px;
+        }
+
+        a {
+            color: white;
+            float: left;
+            padding: 12px;
+            width: 50%;
+        }
+
+        a:hover {
+            color: black;
+        }
+
+        .msg-img {
             margin-right: 10px;
             margin-bottom: 5px;
             background: #ddd;
             border-radius: 50%;
-            } 
-            
+        }
     </style>
 
 </head>
 
 <body>
     <div class="container">
-        
+
 
         <nav class="header navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <diV class="navbar-nav mr-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="/logout/"><h5>Logout</h5></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" href="/profile/"><h5>ViewProfile</h5></a>
-                  </li>
+                    
+                        <a  href="/logout/">
+                            <h5>Logout</h5>
+                        </a>
+                        <a  href="/profile/">
+                            <h5>ViewProfile</h5>
+                        </a>
 
                 </diV>
 
             </div>
 
-        </nav>    
-        <input onclick="copy()" type="text" class="btn btn1 btn-info" value={{room_name}} id="room_id"/>
+        </nav>
+        <input onclick="copy()" type="text" class="btn btn1 btn-info" value={{room_name}} id="room_id" />
         <h6>Meeting code</h6>
         <script>
-        function copy() 
-        {
-            var copyText = document.getElementById('room_id')
-            copyText.select();
-            document.execCommand('copy')
-            console.log('Copied Text')
-        }
+            function copy() {
+                var copyText = document.getElementById('room_id')
+                copyText.select();
+                document.execCommand('copy')
+                console.log('Copied Text')
+            }
         </script>
         <div class="row justify-content-center">
             <div class="chat-body" id="chat-body">
                 <form>
                     <div class="form-group">
-                        <h3 for="" class="h4 pt-5" style="color: azure; font-family: cursive; text-align: center;">Chatroom</h3>
+                        <h3 for="" class="h4 pt-5" style="color: azure; font-family: Roboto; text-align: center;">
+                            Chatroom</h3>
                         <div class="chat" id="msg">
-                            
+
                         </div>
-                        
+
                     </div>
                     <div class="form-group">
                         <input class="form-control col-12" placeholder="Type message..." id="input" type="text">
-                        
-                        <input class="btn btn-info" style="width:100%" id="submit" type="button" value="Send" >
+
+                        <input class="btn btn-info" style="width:100%" id="submit" type="button" value="Send">
                     </div>
-                    
+
                 </form>
             </div>
         </div>
@@ -120,7 +146,7 @@
     {{ request.user.username|json_script:"user_username" }}
     {{ room_name|json_script:"room-name" }}
     <script>
-        document.getElementById('input').addEventListener('keypress', function(event) {
+        document.getElementById('input').addEventListener('keypress', function (event) {
             if (event.keyCode == 13) {
                 event.preventDefault();
             }
@@ -128,7 +154,7 @@
     </script>
     <script>
 
-        
+
 
         const user_username = JSON.parse(document.getElementById('user_username').textContent);
         document.querySelector('#submit').onclick = function (e) {
@@ -150,34 +176,34 @@
             roomName +
             '/'
         );
-        var ui='';
+        var ui = '';
 
         chatSocket.onmessage = function (e) {
             const data = JSON.parse(e.data);
             console.log(data)
-             ui=ui+'<b class="msg-img">'+data.username+'</b>'+ "<br>"+'<div class="message">'+data.message+'</div>'+"<br>";
-            document.getElementById('msg').innerHTML=ui;
-           
-            let chatWindow = document.getElementById('msg'); 
-        
-            chatWindow.scrollTop=chatWindow.scrollHeight;
-          //  document.querySelector('#chat-text').value += (data.username + ': ' + data.message + '\n')
+            ui = ui + '<b class="msg-img">' + data.username + '</b>' + "<br>" + '<div class="message">' + data.message + '</div>' + "<br>";
+            document.getElementById('msg').innerHTML = ui;
+
+            let chatWindow = document.getElementById('msg');
+
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+            //  document.querySelector('#chat-text').value += (data.username + ': ' + data.message + '\n')
         }
-        
-        
+
+
     </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>
