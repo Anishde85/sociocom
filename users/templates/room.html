@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <title>Room</title>
 
     <style>
@@ -13,40 +14,64 @@
       
       justify-content: center;
        align-items: center;
-       background-image: linear-gradient(87deg, rgb(23, 43, 77) 0px, rgb(26, 23, 77) 100%) !important;
+       background-image: linear-gradient(to bottom right, black, black, rgb(12, 5, 66), blue);
        background-size: cover;
        background-repeat: no-repeat;
        background-attachment: fixed;
        
     }
     .header{
-      background-color: #78DEC7 !important;
+      margin-top: 15px;
+      background-image: linear-gradient(to top, #00d9ff, #4502ff);
+      color: white;
+      font-size: 27 px;
     }
+    a{
+  color: white;
+  float: left;
+  padding: 12px;
+  width: 50%;
+}
+a:hover{
+  color: black;
+}
     .content-section{
-            background: #e0e7f7;
-            width: 300px;
-            justify-content: center;
-            padding-left: 20px;
-            padding-top: 10px;
-            padding-bottom: 20px;
-            font-family: fantasy;
-            border-radius: 5%;
-            margin-top: 20px;
-            background-color: #548CA8 !important;
-            align-items: center;
-            margin-left: 37%;
-            
-        }
+font-family: Roboto;
+font-size: 20px;
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+transition: 0.3s;
+border-radius:0; 
+width: 40%;
+margin: auto;
+margin-top: 30px;
+margin-bottom: 30px;
+padding-bottom: 30px;
+text-align: center;
+background-color: #7ecbf8;
+border-radius: 10px;
+}
       .btn1{
-        margin-left: 45% !important;
+        margin-left: 46% !important;
+        background-color: #014df0;
       }
       .btn-info{
-        margin-left: 30%;
+        margin-top: 15px;
+        background-color: #014df0;
       }
+      .btn1:hover {
+  background-color: white; /* Green */
+  color: #014df0;
+}
+.btn-info:hover {
+  background-color: white; /* Green */
+  color: #014df0;
+}
 
         input{
         background-color: aliceblue;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin-left: 15px;
+        font-family: Roboto;
+        border-radius: 10px;
     }
     </style>
   </head>
@@ -66,14 +91,10 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <diV class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="/logout/"><h5>Logout</h5></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="/profile/"><h5>ViewProfile</h5></a>
-              </li>
+        <div >
+            <diV >
+                <a  href="/logout/"><h5>Logout</h5></a>
+                <a  href="/profile/"><h5>ViewProfile</h5></a>
 
             </diV>
 
@@ -86,7 +107,7 @@
       <hr style="height:2px; width:100%; border-width:0; color:white; background-color:white">
       <div class="content-section">
           
-            <h3>Enter room id</h3>
+            <h3>Enter Room id</h3>
             <form method="POST" action="" enctype='multipart/form-data'>
              {% csrf_token %}
              {{form.as_table}}
