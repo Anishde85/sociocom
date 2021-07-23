@@ -2,6 +2,7 @@
 {% block content %}
 
 <head>
+    <link rel="icon" href="/media/favicon.jpeg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
@@ -86,7 +87,7 @@
                             <h3 class="tag">{{x.name}}</h3>
                         </a></p>
                         <h5>(Categories: {{x.categories}})</h5>
-                        <h3 style="color: #FF7600;">₹{{x.price}}</h3>
+                        <h3 style="color: #FF7600">₹{{x.price}}</h3>
             </div>
             {% endfor %}
         </div>
