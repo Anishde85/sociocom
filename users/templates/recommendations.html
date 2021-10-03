@@ -23,12 +23,12 @@
             border-color: #11cdef;
             background-image: linear-gradient(to top, #00d9ff, #4502ff);
             box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08);
-            width: 40%;
+            width: 35%;
             align-self: center;
             margin: auto;
-            margin-top: 20px;
+            margin-top: 15px;
             margin-bottom: 20px;
-            padding: 10px;
+            padding: 12px;
             font-size: 20px;
             font-family: Open Sans, sans-serif;
         }
@@ -75,10 +75,12 @@
 
         {% if not recs %}
         <h1>
-            No recommendations
+            Sorry, We don't have Recomendations regarding you right now.
         </h1>
         {% else %}
-
+        <h1>
+            Our best Recomendations regarding you:-
+        </h1>
         <div class="row">
             {% for x in recs %}
             <div class="card col-md-4">
