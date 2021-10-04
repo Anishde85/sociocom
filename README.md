@@ -39,6 +39,6 @@ We worked with Django web sockets for the first time. We also learned about the 
 
 1. [Anish De](https://github.com/Anishde85 "Anish")
 2. [Devtanu Misra](https://github.com/devtanumisra "Devtanu")
-3. [Malay Gayn](https://github.com/MalayGain "Malay")
+3. [Malay Gain](https://github.com/MalayGain "Malay")
 4. [Manish Kundu](https://github.com/iammanish17 "Manish")
 5. [Sounak Majumder](https://github.com/m-sounak "Sounak")
