@@ -33,7 +33,8 @@
     }
     .content-section{
         background-color: #7ecbf8;
-        width: 400px;
+        width: 600px;
+        height: 700px;
         justify-content: center;
         text-align: center;
         padding-left: 20px;
@@ -44,8 +45,8 @@
         
     }
     input{
-        background-color: aliceblue;
-        box-shadow: white;
+        background-color: #b5def0;
+        
         font-family: Roboto;
         border-radius: 10px;
     }
@@ -74,8 +75,8 @@
 {% endif %}
     <main role="main" class="container">
       <a onclick="location.href=`{% url 'profile' %}`" href="#" class="btn btn-info">Back to Profile</a>
+    
     <div class="row">
-    <div class="">
       <div class="content-section">
         <h3>Update your Profile</h3>
                 <h5> Username: {{ username }}</h5>
@@ -88,6 +89,6 @@
                 </form>
           </div>
         </div>
-      </div>
+    
     </main>
 </body>
